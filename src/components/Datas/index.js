@@ -3,15 +3,13 @@ import './index.scss'
 
 function Datas(props) {
 
-  // const
-
 
   React.useEffect(() => {
     const fetchedData = fetch('https://636398d98a3337d9a2e1d68d.mockapi.io/jirono/users');
     fetchedData.then(response => response.json())
       .then(data => props.setAllPeople(data));
     console.log("data came here");                     // silmek
-  }, [])
+  }, [props.changeCount])
 
 
 

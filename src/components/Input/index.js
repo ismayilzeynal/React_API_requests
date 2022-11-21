@@ -2,22 +2,28 @@ import React from 'react'
 import './index.scss';
 
 function Input(props) {
-
-  const tempPerson = {
-    name: "",
-    surname: ""
-  }
+  props.setChangeCount(0);
+  const [name, setName] = React.useState("");
+  const [surname, setSurname] = React.useState("");
 
   function OccNameValue(e) {
-    tempPerson.name = e.target.value;
-  }
-  function OccSurnameValue(e) {
-    tempPerson.surname = e.target.value;
+    setName(e.target.value);
   }
 
+  function OccSurnameValue(e) {
+    setSurname(e.target.value);
+  }
+
+  React.useEffect(() => {
+    props.setPerson({name,surname});
+  }, [name,surname])
+
+
   function addNewPerson() {
-    props.setPerson(tempPerson);
+    // props.setPerson({name,surname});
+    console.log(props.person);
     postToAPI(props.person);
+    props.setChangeCount(props.changeCount+1);
   }
 
   function postToAPI(obj) {
@@ -29,7 +35,6 @@ function Input(props) {
       body: JSON.stringify(obj),
     });
   }
-
 
   return (
     <>
