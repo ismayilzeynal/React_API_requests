@@ -22,7 +22,7 @@ function Home() {
     <>
       <div className="half-height half-top">
         <div className='container' >
-          {/* <Input person={person} setPerson={setPerson}/>                         */}
+          <Input person={person} setPerson={setPerson}/>                        
 
         </div>
       </div>

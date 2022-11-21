@@ -28,18 +28,13 @@ function Datas(props) {
             </tr>
           </thead>
           <tbody>
-            {/* <tr>
-                  <td>1</td>
-                  <td>İsmayıl</td>
-                  <td>Zeynalov</td>
-                </tr> */}
-            {props.allPeople.map((item) => {
+            {props.allPeople.map((item) => (
               <tr>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.surname}</td>
-              </tr>;
-            })}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
